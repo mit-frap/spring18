@@ -1,6 +1,6 @@
 .PHONY: coq clean
 
-COQC=coqc -q -R ../../frap Frap
+COQC=coqc -q -R ../frap Frap
 
 coq:
 	$(COQC) Pset1Sig
