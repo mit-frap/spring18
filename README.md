@@ -1,5 +1,5 @@
-Problem Sets for MIT 6.887 Formal Reasoning About Programs
-==========================================================
+Problem Sets for MIT 6.822 Formal Reasoning About Programs (Spring 2018)
+========================================================================
 
 Simple instructions for all psets
 ---------------------------------
