@@ -25,7 +25,7 @@ Require Import Frap.
 
 (*
  * All the psets we provide should be compatible with several Coq versions,
- * including 8.4, 8.5, 8.6, and 8.7.  If you haven't installed Coq before, we
+ * including 8.5, 8.6, and 8.7.  If you haven't installed Coq before, we
  * encourage you to install the up-to-date version, which is 8.7, though you
  * may also find it more convenient to install a package from your
  * operating system.  For instance:
