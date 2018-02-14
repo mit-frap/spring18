@@ -1,8 +1,21 @@
 Problem Sets for MIT 6.822 Formal Reasoning About Programs (Spring 2018)
 ========================================================================
 
-Simple instructions for all psets
----------------------------------
+Instructions for completing problem set #X
+------------------------------------------
+
+1. Run `make` in the directory `psetX/`.
+2. Read the module signature for the problem set in the file
+   `psetX/PsetXSig.v`. These are the instructions!
+3. Complete `psetX/PsetX.v`, which implements the module signature
+   in `psetX/PsetXSig.v`. In your complete `PsetX.v`, there should be no
+   uses of `Admitted` or `admit` (or similar holes).
+4. Run `make` in the `psetX/` directory and ensure it builds without error.
+5. Upload your `psetX/PsetX.v` file to the
+   [class website](https://frap.csail.mit.edu/Private/student).
+
+Tips for building problem sets
+------------------------------
 
 ### Setting PATH for coqc
 
