@@ -43,17 +43,17 @@ Module Type S.
     map id xs = xs.
 
   (* If we map the composition of two functions over the list,
-   * it's the same as mapping the first function over the whole list,
+   * it's the same as mapping the first function over the whole list
    * and then mapping the second function over that resulting list.
    *)
   Axiom map_compose : forall {A B C : Type} (g : B -> C) (f : A -> B)
-                        (xs : list A),
+                             (xs : list A),
     map (compose g f) xs = map g (map f xs).
 
   (* Next we can show some classic properties that demonstrate a
    * certain sense in which [map] only modifies the elements of
-   * a list, but preserves its structure: [map_length] shows it 
-   * preserves length, and [map_append] and [map_rev] shows that
+   * a list but preserves its structure: [map_length] shows it 
+   * preserves length, and [map_append] and [map_rev] show that
    * it commutes with [++] and [rev], respectively.
    * For each of [length], [++], and [rev], it doesn't matter
    * whether we apply [map] before the operation or after.
@@ -74,7 +74,7 @@ Module Type S.
    * by [z].
    *
    * [fold] is a "right" fold, which associates the binary operation
-   * the opposite way as the [left_fold] function that we defined
+   * the opposite way as the [fold_left] function that we defined
    * in lecture.
    *)
   Parameter fold : forall {A B : Type}, (A -> B -> B) -> B -> list A -> B.
@@ -123,7 +123,7 @@ Module Type S.
    *)
   Axiom sum_example : sum [1; 2; 3] = 6.
   
-  (* Using [fold], define a function that computs the
+  (* Using [fold], define a function that computes the
    * conjunction of a list of Booleans (where the 0-ary
    * conjunction is defined as [true]).
    *)
@@ -145,13 +145,13 @@ Module Type S.
   (* Just like we defined [map] for lists, we can similarly define
    * a higher-order function [tree_map] which applies a function on
    * elements to all of the elements in the tree, leaving the tree
-   * structure in tact.
+   * structure intact.
    *)
   Parameter tree_map : forall {A B : Type}, (A -> B) -> tree A -> tree B.
 
   Axiom tree_map_example :
     tree_map (fun x => x + 1) (Node (Node Leaf 1 Leaf) 2 (Node Leaf 3 (Node Leaf 4 Leaf)))
-                         = (Node (Node Leaf 2 Leaf) 3 (Node Leaf 4 (Node Leaf 5 Leaf))).
+    = (Node (Node Leaf 2 Leaf) 3 (Node Leaf 4 (Node Leaf 5 Leaf))).
 
   (* [tree_map_flatten] shows that [map]
    * and [tree_map] are related by the [flatten] function.
@@ -171,6 +171,9 @@ Module Type S.
    * in the list [xs] to a function that adds that number,
    * composing all of those functions together, and finally
    * applying that large composed function to [0].
+   * Note that function [plus], when applied to just one number as an
+   * argument, returns a function over another number, which
+   * adds the original argument to it!
    *)
   Axiom compose_list_map_add_sum : forall (xs : list nat),
     compose_list (map plus xs) 0 = sum xs.
@@ -178,7 +181,7 @@ Module Type S.
 End S.
 
 (* The template file Pset3.v also suggests some additional challenge problems,
- * which won't be graded, but which provide extra practice with higher-order
+ * which won't be graded but which provide extra practice with higher-order
  * functions. In these problems, you will implement the "continuation monad"
  * and prove a property about it.
  *)

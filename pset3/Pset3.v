@@ -26,7 +26,7 @@ Proof.
 Admitted.
 
 (* If we map the composition of two functions over the list,
- * it's the same as mapping the first function over the whole list,
+ * it's the same as mapping the first function over the whole list
  * and then mapping the second function over that resulting list.
  *)
 Theorem map_compose : forall {A B C : Type} (g : B -> C) (f : A -> B)
@@ -38,7 +38,7 @@ Admitted.
 (* Next we can show some classic properties that demonstrate a
  * certain sense in which [map] only modifies the elements of
  * a list, but preserves its structure: [map_length] shows it 
- * preserves length, and [map_append] and [map_rev] shows that
+ * preserves length, and [map_append] and [map_rev] show that
  * it commutes with [++] and [rev], respectively.
  * For each of [length], [++], and [rev], it doesn't matter
  * whether we apply [map] before the operation or after.
@@ -98,7 +98,7 @@ Proof.
 Admitted.
 
 (* If we apply [fold] to the concatenation of two lists,
- * it is the same as folding the "right" list, and using
+ * it is the same as folding the "right" list and using
  * that as the starting point for folding the "left" list.
  *)
 Theorem fold_append : forall {A : Type} (f : A -> A -> A) (z : A)
@@ -127,7 +127,7 @@ Example sum_example : sum [1; 2; 3] = 6.
 Proof.
 Admitted.
 
-(* Using [fold], define a function that computs the
+(* Using [fold], define a function that computes the
  * conjunction of a list of Booleans (where the 0-ary
  * conjunction is defined as [true]).
  *)
@@ -189,7 +189,7 @@ Admitted.
 
 (* Show that [sum xs] is the same as converting each number
  * in the list [xs] to a function that adds that number,
- * composing all of those functions together, and finally
+ * composing all of those functions together and finally
  * applying that large composed function to [0].
  *)
 Theorem compose_list_map_add_sum : forall (xs : list nat),
@@ -222,7 +222,7 @@ Admitted.
 
 (* A *monad* is a common idiom in functional programming for composition
  * of computations that return certain higher-typed values.
- * A monad [m] has type [Type -> Type], and has two operations:
+ * A monad [m] has type [Type -> Type] and has two operations:
  * [ret : forall A, A -> m A], which injects a pure value into the monad, and
  * [bind : forall A B, m A -> (A -> m B) -> m B], which composes two monadic
  * computations together.
