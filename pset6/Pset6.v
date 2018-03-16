@@ -143,7 +143,7 @@ Fixpoint interp (e : arith) (v : valuation) : nat :=
      sanity check!
  *)
 
-Definition result : Set.
+Definition result : Type.
 Admitted.
 
 Definition eval : valuation -> cmd -> result -> Prop.
@@ -214,7 +214,7 @@ Admitted.
    a good sanity check!
  *)
 
-Definition state : Set.
+Definition state : Type.
 Admitted.
 
 Definition step : state -> state -> Prop.
